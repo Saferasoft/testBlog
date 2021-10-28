@@ -24,7 +24,4 @@ class Like(models.Model):
         _("date_created"), auto_now_add=True)
 
     def __str__(self):
-        return self.post.title
-
-    def __str__(self):
-        return self.post.title
+        return self.author.username

@@ -1,13 +1,11 @@
 from django.urls import path, include
-from . import views
-from rest_framework.routers import DefaultRouter
-
-router = DefaultRouter()
-router.register("posts", views.PostsView, basename='posts')
+from .views import *
 
 urlpatterns = [
-    path('', include(router.urls)),
-    path('likes/counter/<int:pk>', views.LikeCounterView.as_view()),
-    path('posts/<int:pk>',  views.PostDetailsView.as_view()),
-    path('user/<str:username>',  views.UsersView.as_view()),
+    path('', PostView, name='post list'),
+    path('newPost/', AddPost, name='add post'),
+    path('posts/<int:pk>',  PostDetailsView.as_view()),
+    path('posts/<int:pk>/like', addLike, name='like'),
+    path('likes/counter/<int:pk>', getLikes, name='like counter'),
+
 ]
