@@ -48,6 +48,8 @@ INSTALLED_APPS = [
 
 ]
 
+APPEND_SLASH = False
+
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:8080',
 ]
